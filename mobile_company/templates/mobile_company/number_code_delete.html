@@ -1,0 +1,24 @@
+{% extends 'mobile_company/main.html' %}
+{% load static %}
+{% block content %}
+<style>
+
+</style>
+
+    <br>
+    <div style="background-color: #66d9d9; text-align: center; padding: 40px; margin-right: 400px; margin-left: 400px; margin-top: 160px">
+        <div>
+            <div>
+                <p> Are you sure want to delete "{{ number_code }}"</p>
+
+                <form action="{% url 'NumberCodeDelete' number_code.id %}" method="POST">
+                    {% csrf_token %}
+
+                    <a class="btn btn-warning" href="{% url 'NumberCode' %}"> Chanel </a>
+
+                    <button class="btn btn-danger"> Delete </button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

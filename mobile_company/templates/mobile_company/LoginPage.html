@@ -1,0 +1,48 @@
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<style>
+    body{
+        background-color: #2dab6a;
+    }
+</style>
+<body>
+<form class="form-horizontal" action='' method="POST" style="margin-top: 180px; margin-left: 500px; margin-right: 500px">
+    {% csrf_token %}
+  <fieldset class="table table-striped table-bordered table-hover" style="background-color: #4cb4c7">
+    <div id="legend">
+      <h2 style="margin-left: 100px">Login to your account</h2>
+        <br>
+    </div>
+    <div class="control-group">
+      <!-- Username -->
+      <label class="control-label"  for="username">Username</label>
+      <div class="controls">
+        <input type="text" id="username" name="username" placeholder="" class="input-xlarge">
+      </div>
+    </div>
+
+    <div class="control-group">
+      <!-- Password-->
+      <label class="control-label" for="password">Password</label>
+      <div class="controls">
+        <input type="password" id="password" name="password" placeholder="" class="input-xlarge">
+      </div>
+    </div>
+      {% for i in messages %}
+      <p class="bg-success"> {{ i }} </p>
+      {% endfor %}
+
+    <div class="control-group">
+      <!-- Button -->
+      <div class="control-group" style="padding: 5px 97px">
+        <button class="btn btn-success" href="{% url 'home' %}" style="padding: 5px 145px">Login in</button>
+      </div>
+        <div class="control-group">
+    <p style="margin-left: 85px">You don't have an account? <a href="{% url 'register' %} " class="btn btn-success" style="padding: 5px 55px">Registration</a></p>
+  </div>
+    </div>
+  </fieldset>
+</form>
+</body>

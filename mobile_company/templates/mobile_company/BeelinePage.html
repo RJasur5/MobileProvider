@@ -1,0 +1,34 @@
+{% extends 'mobile_company/Main_for_Customer.html' %}
+
+{% block content %}
+    <br>
+    <div>
+        <div>
+            <div>
+                <table class="table table-striped table-bordered table-hover">
+                    <tr>
+                        <th> Number Code </th>
+                        <th> Phone Numbers </th>
+                        <th> Category Name </th>
+                        <th> Status </th>
+                        <th> Buy </th>
+                    </tr>
+
+                    {% for i in phonenumbers %}
+                    {% if i.status %}
+                    {% else %}
+                        <tr>
+                            <td>{{ i.numbercode }}</td>
+                            <td>{{ i }}</td>
+                            <td>{{ i.categoryname }}</td>
+                            <td>{{ i.status }}</td>
+                            <td><a class="btn btn-primary btn-lg btn-info" href="{% url 'BuyNumber' i.id  %}"> Buy </a></td>
+                        </tr>
+                    {% endif %} 
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

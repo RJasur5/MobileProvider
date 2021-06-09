@@ -1,0 +1,14 @@
+{% extends 'mobile_company/main.html' %}
+
+{% load static %}
+
+{% block content %}
+
+    <form action="" method="POST" style="background-color: #66d9d9; padding: 30px; text-align: center;">
+        {% csrf_token %}
+            {{ c_forms }}
+
+        <button class="btn btn-info"> Save </button>
+    </form>
+
+{% endblock %}
